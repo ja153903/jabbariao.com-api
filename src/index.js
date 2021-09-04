@@ -16,7 +16,9 @@ async function startApolloServer() {
   apolloServer.applyMiddleware({ app });
 
   app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
+    console.log(
+      `GraphQL server available at localhost:${port}${apolloServer.graphqlPath}`,
+    );
   });
 }
 
