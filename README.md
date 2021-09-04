@@ -19,3 +19,7 @@ I will migrate this project to TypeScript when it's at a good place
 ## Structure
 
 Will structure this project like a monothlithic Django project
+
+## Deployment
+
+Deploys automatically with Vercel
