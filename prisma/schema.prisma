@@ -6,3 +6,13 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+
+// Start of Post Models
+model Post {
+  id         Int        @id @default(autoincrement())
+  title      String
+  content    String
+  created    DateTime   @default(now())
+  updated    DateTime   @updatedAt
+}
+// End of Post Models
