@@ -1,7 +1,10 @@
 import { ApolloServer } from "apollo-server-express";
 import { mergeResolvers, mergeTypeDefs } from "@graphql-tools/merge";
+import { makeExecutableSchema } from "@graphql-tools/schema";
+import { applyMiddleware } from "graphql-middleware";
 
 import { customScalarResolvers } from "./scalarTypes";
+import permissions from "./permissions";
 
 import { typeDefs as postTypeDefs, resolvers as postResolvers } from "../posts";
 
@@ -10,8 +13,10 @@ const resolvers = mergeResolvers([postResolvers, customScalarResolvers]);
 
 async function startApolloServer(app, httpServer, port) {
   const apolloServer = new ApolloServer({
-    typeDefs,
-    resolvers,
+    schema: applyMiddleware(
+      makeExecutableSchema({ typeDefs, resolvers }),
+      permissions,
+    ),
   });
 
   await apolloServer.start();

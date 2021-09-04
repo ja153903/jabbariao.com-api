@@ -10,6 +10,8 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "graphql": "^15.5.2",
+    "graphql-middleware": "^6.1.6",
+    "graphql-shield": "^7.5.0",
     "graphql-tools": "^8.2.0"
   },
   "devDependencies": {
