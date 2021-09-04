@@ -15,6 +15,10 @@ const typeDefs = gql`
     allPosts: [Post!]
     latestPosts: [Post!]
   }
+
+  type Mutation {
+    createPost(title: String, content: String): Post
+  }
 `;
 
 const resolvers = {

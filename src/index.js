@@ -1,12 +1,23 @@
 import Express from "express";
+import cors from "cors";
 
 import apolloServer from "./graphql";
 
 const app = Express();
 const port = process.env.PORT || 5050;
 
-apolloServer.applyMiddleware({ app });
+app.use(cors());
+app.use(Express.json());
+app.use(Express.urlencoded());
 
-app.listen(port, () => {
-  console.log(`Listening on port ${port}`);
-});
+async function startApolloServer() {
+  await apolloServer.start();
+
+  apolloServer.applyMiddleware({ app });
+
+  app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+  });
+}
+
+startApolloServer();
