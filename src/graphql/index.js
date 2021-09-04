@@ -4,7 +4,6 @@ import { mergeResolvers, mergeTypeDefs } from "@graphql-tools/merge";
 import { customScalarResolvers } from "./scalarTypes";
 
 import { typeDefs as postTypeDefs, resolvers as postResolvers } from "../posts";
-import { cors } from "../config";
 
 const typeDefs = mergeTypeDefs([postTypeDefs]);
 const resolvers = mergeResolvers([postResolvers, customScalarResolvers]);
@@ -17,7 +16,7 @@ async function startApolloServer(app, httpServer, port) {
 
   await apolloServer.start();
 
-  apolloServer.applyMiddleware({ app, cors });
+  apolloServer.applyMiddleware({ app });
 
   await new Promise((resolve) => httpServer.listen({ port }, resolve));
 
