@@ -16,11 +16,17 @@
     "@babel/core": "^7.15.5",
     "@babel/node": "^7.15.4",
     "@babel/preset-env": "^7.15.4",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
     "nodemon": "^2.0.12",
+    "prettier": "2.3.2",
     "prisma": "^2.30.3"
   },
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js",
-		"migrate": "npx prisma migrate dev --name"
+    "migrate": "npx prisma migrate dev --name"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
