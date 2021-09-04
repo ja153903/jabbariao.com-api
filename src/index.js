@@ -7,6 +7,6 @@ const port = process.env.PORT || 5050;
 
 apolloServer.applyMiddleware({ app });
 
-app.listen(() => {
+app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
