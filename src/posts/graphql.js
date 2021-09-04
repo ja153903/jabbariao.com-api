@@ -1,1 +1,1 @@
-# TODO: Define GraphQL related components here
+// TODO: Define GraphQL related components here

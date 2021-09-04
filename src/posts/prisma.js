@@ -1,1 +1,1 @@
-# TODO: Define prisma related queries here
+// TODO: Define prisma related queries here
