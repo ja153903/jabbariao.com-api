@@ -2,6 +2,9 @@ import { gql } from "apollo-server-express";
 
 const typeDefs = gql``;
 
-const resolvers = {};
+const resolvers = {
+  Query: {},
+  Mutation: {},
+};
 
 export { typeDefs, resolvers };
