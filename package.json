@@ -20,6 +20,7 @@
     "prisma": "^2.30.3"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js"
+    "start": "nodemon --exec babel-node src/index.js",
+		"migrate": "npx prisma migrate dev --name"
   }
 }
