@@ -8,9 +8,14 @@ import { customScalarResolvers } from "./scalarTypes";
 import permissions from "./permissions";
 
 import { typeDefs as postTypeDefs, resolvers as postResolvers } from "../posts";
+import { typeDefs as authTypeDefs, resolvers as authResolvers } from "../auth";
 
-const typeDefs = mergeTypeDefs([postTypeDefs]);
-const resolvers = mergeResolvers([postResolvers, customScalarResolvers]);
+const typeDefs = mergeTypeDefs([postTypeDefs, authTypeDefs]);
+const resolvers = mergeResolvers([
+  postResolvers,
+  authResolvers,
+  customScalarResolvers,
+]);
 
 async function startApolloServer(app, httpServer, port) {
   const apolloServer = new ApolloServer({
